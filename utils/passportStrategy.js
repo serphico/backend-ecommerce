@@ -3,7 +3,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const mongo_db = require('../config');
 const bCrypt = require('bcrypt');
 const Users = require('../controller/schemas/schemaUser');
-const logger = require('./utils/logger');
+const logger = require('./logger');
 
 function isValidPassword(user, password) {
     return bCrypt.compareSync(password, user.password);

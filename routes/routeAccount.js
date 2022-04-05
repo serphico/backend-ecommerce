@@ -2,6 +2,7 @@ const { Router } = require('express');
 const passport = require('passport');
 const multer = require('multer');
 const path = require('path');
+const passportStrategy = require('../utils/passportStrategy')
 
 /*------------------INICIO DECLARAR RUTAS------------------------*/
 
