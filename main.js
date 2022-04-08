@@ -2,6 +2,7 @@ const express = require('express')
 const dotenv = require('dotenv');
 const {registerRoute, loginRoute} = require('./routes/routeAccount')
 const home = require('./routes/home')
+const cart = require('./routes/cart')
 const cookieParse = require('cookie-parser')
 const session = require('express-session')
 const passport = require('passport')
@@ -37,5 +38,7 @@ app.use('/api', home);
 app.use('/register', registerRoute);
 
 app.use('/login', loginRoute)
+
+app.use('/cart', cart)
 
 module.exports = app;
