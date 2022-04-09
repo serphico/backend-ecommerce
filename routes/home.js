@@ -11,7 +11,6 @@ home.get("/", (req, res) => {
     let resp = res;
     productsController.findProduct()
     .then(productos => {
-      console.log(productos)
       resp.json({ productos: productos, isLogin: JSON.stringify(isLogin)});      
     })
 

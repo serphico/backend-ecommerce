@@ -1,13 +1,29 @@
 const { Router } = require('express');
 const logger = require('../utils/logger');
+const cartHandler = require('../controller/cartController')
 
+const cartRoute = Router();
 
-const cart = Router();
+cartRoute.get('/', (req,res)=>{
+    try {
+        let isLogin = req.session.email
+        let resp = res;
+        cartHandler.showCart()
+        .then(cartContent =>{
+            resp.json({cartContent , isLogin: JSON.stringify(isLogin)})
+        })
+    } catch (error) {
+        logger.info(`error on cart.get: ${error}`)
 
-cart.post("/", (req, res) => {
+    }
+})
 
-    console.log(req.body)
-
+cartRoute.post("/", (req, res) => {
+    try {
+        cartHandler.addProd(req.body)
+    } catch (error) {
+        logger.info(`error on cart.post: ${error}`)
+    }
   });
 
- module.exports = cart;
+ module.exports = cartRoute;
