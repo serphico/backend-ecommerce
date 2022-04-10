@@ -1,8 +1,8 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-const mongo_db = require('../config');
+require('../DAOs/config');
 const bCrypt = require('bcrypt');
-const Users = require('../controller/schemas/schemaUser');
+const Users = require('../DAOs/schemas/schemaUser');
 const logger = require('./logger');
 
 function isValidPassword(user, password) {

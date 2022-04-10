@@ -1,6 +1,6 @@
-const Crud = require('../controller/crudController');
-const mongo_db = require('../config');
-const Products  = require('../controller/schemas/schemaProd');
+const Crud = require('./crudController');
+const mongo_db = require('../DAOs/config');
+const Products  = require('../DAOs/schemas/schemaProd');
 const logger = require('../utils/logger');
 
 

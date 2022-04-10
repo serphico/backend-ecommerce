@@ -1,6 +1,6 @@
 const twilio = require('twilio')
 const logger = require('../../utils/logger')
-const User = require('../schemas/schemaUser')
+const User = require('../../DAOs/schemas/schemaUser')
 const dotenv = require('dotenv');
 
 dotenv.config();

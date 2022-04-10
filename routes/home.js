@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const productsController = require('../DAOs/productController');
+const productsController = require('../controller/productController');
 const logger = require('../utils/logger');
 
 

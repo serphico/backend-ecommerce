@@ -1,5 +1,5 @@
 const logger = require('../../utils/logger')
-const Users = require('../schemas/schemaUser')
+const Users = require('../../DAOs/schemas/schemaUser')
 
 
 class ShowInfoAccount{
