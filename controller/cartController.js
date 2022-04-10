@@ -30,8 +30,9 @@ class Cart{
     async showCart(){
         try {
             let cartContent = await this.contentCart;
-
+            console.log(cartContent)
             return cartContent;
+
         } catch (error) {
             logger.info(`error on class Cart en el metodo showCart: ${error}`)  
 

@@ -2,7 +2,8 @@ const { Router } = require('express');
 const passport = require('passport');
 const multer = require('multer');
 const path = require('path');
-const passportStrategy = require('../utils/passportStrategy')
+require('../utils/passportStrategy')
+const sendMail = require('../controller/sendmail/sendMailConfig')
 
 /*------------------INICIO DECLARAR RUTAS------------------------*/
 
@@ -30,7 +31,11 @@ loginRoute.post('/',passport.authenticate('login',{failureRedirect: '/failLogin'
     res.redirect('/')
 })
 
-registerRoute.post('/', upload.single('avatar'),passport.authenticate('registro',{failureRedirect: '/failRegistro', successRedirect: '/login'}))
+registerRoute.post('/', upload.single('avatar'),passport.authenticate('registro',{failureRedirect: '/failRegistro'}),(req,res)=>{
+ 
+    sendMail.sendRegister(req.body)
+    res.redirect('/login');
+})
 
 
 

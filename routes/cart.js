@@ -10,7 +10,8 @@ cartRoute.get('/', (req,res)=>{
         let resp = res;
         cartHandler.showCart()
         .then(cartContent =>{
-            resp.json({cartContent , isLogin: JSON.stringify(isLogin)})
+            logger.info(`el objeto es ${cartContent}`)
+            resp.json({cartContent: cartContent , isLogin: JSON.stringify(isLogin)})
         })
     } catch (error) {
         logger.info(`error on cart.get: ${error}`)
