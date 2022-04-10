@@ -1,6 +1,6 @@
 const express = require('express')
 const dotenv = require('dotenv');
-const {registerRoute, loginRoute} = require('./routes/routeAccount')
+const {registerRoute, loginRoute, logoutRoute} = require('./routes/routeAccount')
 const home = require('./routes/home')
 const cartRoute = require('./routes/cart')
 const buyRouter = require('./routes/buy')
@@ -39,6 +39,8 @@ app.use('/api', home);
 app.use('/register', registerRoute);
 
 app.use('/login', loginRoute)
+
+app.use('/logout', logoutRoute)
 
 app.use('/cart', cartRoute)
 

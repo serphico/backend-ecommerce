@@ -1,18 +1,20 @@
 const { createTransport } = require('nodemailer');
 const logger = require('../../utils/logger')
 const User = require('../schemas/schemaUser')
+const dotenv = require('dotenv');
 
+dotenv.config();
 
 /*mail de test*/
-const TEST_MAIL = 'gwen.tillman23@ethereal.email'
+const TEST_MAIL = process.env.NODE_TEST_MAIL; 
 
 /*CUENTA QUE ENVIA (TRANSPORTE)*/
 const transporter = createTransport({
-   host: 'smtp.ethereal.email',
-   port: 587,
+   host: process.env.NODE_HOST_EMAIL,
+   port: process.env.NODE_PORT_EMAIL,
    auth: {
        user: TEST_MAIL,
-       pass: 'HaWH99GCBtVsF7zpyE'
+       pass: process.env.NODE_PASS_EMAIL
    }
 });
 
